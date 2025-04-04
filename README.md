@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Task Manager App
 
-## Getting Started
+Aplicación de gestión de tareas construida con Next.js, Shadcn/ui y SQLite.
 
-First, run the development server:
+![Task List Preview](/docs/assets/task-list.png) <!-- Asegúrate de crear esta ruta y agregar tus screenshots -->
 
+## Características principales
+- ✅ Crear, editar y eliminar tareas
+- ✅ Marcar tareas como completadas
+- ✅ Vista de lista con scroll
+- ✅ Filtros para tareas completadas/pendientes
+- ✅ Interfaz responsive y accesible
+
+## Requisitos previos
+- Node.js v18+
+- npm v9+ (o yarn/pnpm/bun)
+- Navegador moderno
+
+## Instalación
+
+1. Clonar el repositorio:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone [tu-url-del-repositorio]
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Instalar dependencias:
+```bash
+npm install
+# o
+yarn install
+# o
+pnpm install
+# o
+bun install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Ejecutar la aplicación
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Iniciar el servidor de desarrollo:
+```bash
+npm run dev
+```
 
-## Learn More
+2. Abrir en el navegador:
+```
+http://localhost:3000
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Estructura principal del proyecto
+```
+/app
+  /TaskItem        # Página de edición de tareas
+  /TaskList        # Lista principal de tareas
+  /TaskForm        # Formulario de creación/edición
+/components        # Componentes UI
+/types             # Tipos TypeScript
+/docs              # Documentación y assets
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Application Preview
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Vista de lista de tareas
+![Task List](/docs/assets/task-list.png)
 
-## Deploy on Vercel
+### Formulario de edición
+![Edit Task](/docs/assets/edit-task.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Confirmación de eliminación
+![Delete Confirmation](/docs/assets/delete-confirmation.png)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Configuración avanzada
+
+Para personalizar la base de datos:
+1. Crear archivo `.env` basado en `.env.example`
+2. Modificar la configuración de SQLite en `lib/db.ts`
+
+## Desplegar en Vercel
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=[tu-url-del-repositorio])
+
+```bash
+npm run build
+vercel deploy
+```
+
+## Tecnologías utilizadas
+- Next.js 14
+- Shadcn/ui
+- SQLite
+- TypeScript
+- Tailwind CSS
