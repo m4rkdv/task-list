@@ -2,7 +2,7 @@
 
 Aplicación de gestión de tareas construida con Next.js, Shadcn/ui y SQLite.
 
-![Task List Preview](/docs/assets/task-list.png) <!-- Asegúrate de crear esta ruta y agregar tus screenshots -->
+![Task List Preview](/docs/assets/task-prev.png) 
 
 ## Características principales
 - ✅ Crear, editar y eliminar tareas
@@ -63,25 +63,7 @@ http://localhost:3000
 ![Task List](/docs/assets/task-list.png)
 
 ### Formulario de edición
-![Edit Task](/docs/assets/edit-task.png)
-
-### Confirmación de eliminación
-![Delete Confirmation](/docs/assets/delete-confirmation.png)
-
-## Configuración avanzada
-
-Para personalizar la base de datos:
-1. Crear archivo `.env` basado en `.env.example`
-2. Modificar la configuración de SQLite en `lib/db.ts`
-
-## Desplegar en Vercel
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=[tu-url-del-repositorio])
-
-```bash
-npm run build
-vercel deploy
-```
+![Edit Task](/docs/assets/task-edit.png)
 
 ## Tecnologías utilizadas
 - Next.js 14
