@@ -20,7 +20,7 @@ Aplicación de gestión de tareas construida con Next.js, Shadcn/ui y SQLite.
 
 1. Clonar el repositorio:
 ```bash
-git clone [tu-url-del-repositorio]
+git clone https://github.com/m4rkdv/task-list.git
 ```
 
 2. Instalar dependencias:
@@ -48,6 +48,9 @@ http://localhost:3000
 
 ## Estructura principal del proyecto
 ```
+/api
+  /tasks           # Maneja GET (lista) , POST (creación) y DELETE de todas las tareas
+  /task/id         # Maneja GET (individual), PUT (actualización) y DELETE
 /app
   /TaskItem        # Página de edición de tareas
   /TaskList        # Lista principal de tareas
