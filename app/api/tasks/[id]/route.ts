@@ -2,10 +2,16 @@ import { NextResponse } from 'next/server';
 import getDataBaseClient from '@/data-base/DataBaseClient';
 import { convertToTask, RawTask } from '@/types/Task';
 
-export async function GET(_: Request, { params }: { params: { id: string } }) {
+interface Context {
+  params: {
+    id: string;
+  };
+}
+
+export async function GET(request: Request, context: Context) {
   try {
     const client = await getDataBaseClient();
-    const { id } = params;
+    const { id } = context.params;
 
     const result = await client.execute({
       sql: "SELECT * FROM Tasks WHERE id = ?",
@@ -31,9 +37,9 @@ export async function GET(_: Request, { params }: { params: { id: string } }) {
   }
 }
 
-export async function PUT(request: Request, { params }: { params: { id: string } }) {
+export async function PUT(request: Request, context: Context) {
   try {
-    const { id } = params;
+    const { id } = context.params;
     const { title, description, completed } = await request.json();
     const client = await getDataBaseClient();
 
@@ -57,9 +63,9 @@ export async function PUT(request: Request, { params }: { params: { id: string }
   }
 }
 
-export async function DELETE(_: Request, { params }: { params: { id: string } }) {
+export async function DELETE(request: Request, context: Context) {
   try {
-    const { id } = params;
+    const { id } = context.params;
     const client = await getDataBaseClient();
 
     await client.execute({
