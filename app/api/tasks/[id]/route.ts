@@ -4,12 +4,12 @@ import { convertToTask, RawTask } from '@/types/Task';
 
 
 export async function GET(
-  request: Request,
-  { params }: { params: { id: string } }
+  _request: Request,
+  { params }: { params: Promise<{ id: string }> }
 ): Promise<NextResponse> {
   try {
     const client = await getDataBaseClient();
-    const { id } = params;
+    const id  = (await params).id;
 
     const result = await client.execute({
       sql: "SELECT * FROM Tasks WHERE id = ?",
@@ -37,10 +37,10 @@ export async function GET(
 
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ): Promise<NextResponse> {
   try {
-    const { id } = params;
+    const  id  = (await params).id;
     const { title, description, completed } = await request.json();
     const client = await getDataBaseClient();
 
@@ -65,11 +65,11 @@ export async function PUT(
 }
 
 export async function DELETE(
-  request: Request,
-  { params }: { params: { id: string } }
+  _request: Request,
+  { params }: { params: Promise<{ id: string }> }
 ): Promise<NextResponse> {
   try {
-    const { id } = params;
+    const id  = (await params).id;
     const client = await getDataBaseClient();
 
     await client.execute({
